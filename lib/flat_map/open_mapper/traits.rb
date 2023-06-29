@@ -20,6 +20,12 @@ module FlatMap
         mapper_class      = Class.new(base_class, &block)
         mapper_class_name = "#{ancestors.first.name}#{name.to_s.camelize}Trait"
         mapper_class.singleton_class.send(:define_method, :name){ mapper_class_name }
+        mapper_class.define_method(:inspect) do
+          "#<#{self.class.name}:#{object_id} ".tap do |string|
+            string << instance_variables.map { |name| "#{name}=#{instance_variable_get(name)}" }.join(", ")
+            string << ">"
+          end
+        end
         mount mapper_class, :trait_name => name
       end
     end
