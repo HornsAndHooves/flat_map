@@ -76,7 +76,7 @@ module FlatMap
     context 'defining mountings' do
       it "should use Factory for defining mappings" do
         expect(Mapper::Factory).to receive(:new).
-                        with(:foo, :mapper_class_name => 'FooMapper').
+                        with(:foo, { :mapper_class_name => 'FooMapper' }).
                         and_call_original
 
         expect{ MountingSpec::EmptyMapper.mount(:foo, :mapper_class_name => 'FooMapper') }.

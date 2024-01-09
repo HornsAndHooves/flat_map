@@ -49,7 +49,7 @@ module FlatMap
     end
 
     # Overridden to add suffixing support for mappings of mappers with name suffix
-    def add(attr, *args)
+    def add(attr, type, **options)
       attr = :"#{attr}_#{@base.suffix}" if attr != :base && @base.suffixed?
       super
     end

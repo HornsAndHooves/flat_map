@@ -35,10 +35,10 @@ module FlatMap
           with({:attr_a => :attr_a, :mapped_attr_b => :attr_b}, {:writer => false}).
           and_call_original
         expect(Mapping::Factory).to receive(:new).
-                         with(:attr_a, :attr_a, :writer => false).
+                         with(:attr_a, :attr_a, { :writer => false }).
                          and_call_original
         expect(Mapping::Factory).to receive(:new).
-                         with(:mapped_attr_b, :attr_b, :writer => false).
+                         with(:mapped_attr_b, :attr_b, { :writer => false }).
                          and_call_original
 
         MappingSpec::EmptyMapper.class_eval do

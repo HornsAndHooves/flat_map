@@ -55,13 +55,13 @@ module FlatMap
     # @param [Object] target Target of mapping
     # @param [*Symbol] traits List of traits
     # @raise [FlatMap::Mapper::NoTargetError]
-    def initialize(target, *traits)
+    def initialize(target, *traits, &block)
       raise NoTargetError.new(self.class) unless target
 
       @target, @traits = target, traits
 
       if block_given?
-        singleton_class.trait :extension, &Proc.new
+        singleton_class.trait :extension, &block
       end
     end
 
