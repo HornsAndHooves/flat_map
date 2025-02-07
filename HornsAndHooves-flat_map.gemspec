@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  s.add_dependency "activesupport", ">= 5", "< 7.0.0"
-  s.add_dependency "activerecord", ">= 5", "< 7.0.0"
+  s.add_dependency "activesupport", ">= 5"
+  s.add_dependency "activerecord", ">= 5"
   s.add_dependency "yard"
 
   s.add_development_dependency "rspec", '~> 3.5'
